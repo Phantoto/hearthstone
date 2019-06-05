@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.enemy{
+			margin-top: 200px;
+			text-align:center;
+			height: 250px;
+		}
+		.player_img{
+			width:150px;
+
+		}
+		.player{
+			text-align: center;
+			height: 250px;
+		}
+	</style>
+</head>
+<body style="background-image: url(images/bg.jpg); background-size: 100% ">
+
+	<div class="enemy">
+		<h1 style="color: white; font-family: Arial;">Враг</h1>
+	</div>
+	<div class="player">
+		<h1 style="color: white; font-family: Arial;">Игрок</h1>
+	</div>
+<script type="text/javascript">
+	let cards = [
+		{
+			url:"images/1.png",
+			hp:1,
+		},
+		{
+			url:"images/2.png",
+			hp:4,
+		},
+		{
+			url:"images/3.png",
+			hp:4,
+		},
+		{
+			url:"images/4.png",
+			hp:1,
+		},
+		{
+			url:"images/5.png",
+			hp:7,
+		},
+		{
+			url:"images/6.png",
+			hp:5,
+		},
+		{
+			url:"images/7.png",
+			hp:5,
+		},
+		{
+			url:"images/8.png",
+			hp:7,
+		},
+		{
+			url:"images/9.png",
+			hp:4,
+		},
+		{
+			url:"images/10.png",
+			hp:5,
+		},
+	]
+
+
+
+	let btn = document.querySelector(".btn");
+	let enemy_block = document.querySelector(".enemy");
+	let player_block = document.querySelector(".player");
+	let enemy_hp  =24;
+	let hp = document.querySelector(".hp");
+
+
+	let getRandom = function(){
+		let rand = Math.random() * 5;
+		let round = Math.floor(rand);
+		return round;
+	}
+
+	let summPlayer = 0;
+	let createPlayerCard = function(arg){
+		for(let i=0;i<arg;i++){
+			let card = document.createElement("img");
+			player_block.appendChild(card);
+			let rand = Math.random() * 9;
+			let round = Math.floor(rand);
+			card.src = cards[round].url;
+			card.classList.add("player_img");
+			summPlayer = summPlayer + cards[round].hp;
+		}		
+
+
+	}
+
+	let summEnemy = 0;
+	let createEnemyCard = function(arg){
+		for(let i=0;i<arg;i++){
+			let card = document.createElement("img");
+			enemy_block.appendChild(card);
+			let rand = Math.random() * 9;
+			let round = Math.floor(rand);
+			card.src = cards[round].url;
+			card.classList.add("player_img");
+			summEnemy = summEnemy + cards[round].hp;
+		}		
+	}
+
+
+</script>
+</body>
+</html>
